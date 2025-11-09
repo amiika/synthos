@@ -1,4 +1,4 @@
-  :root {
+      :root {
         --theme-bg: #000;
         --theme-default: #0f0;
         --theme-selection: #0f0;
@@ -92,14 +92,71 @@
         box-shadow: 0 0 8px var(--theme-selection);
       }
 
+      #output-record-button-container {
+        pointer-events: auto;
+      }
+      #output-record-button {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+        color: var(--theme-default);
+        border: 2px solid var(--theme-grid);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+      #output-record-button:hover {
+        border-color: var(--theme-selection);
+        box-shadow: 0 0 5px var(--theme-selection);
+      }
+      #output-record-button.recording {
+        color: var(--theme-looper-recording);
+        border-color: var(--theme-looper-recording);
+        animation: pulse 1.5s infinite;
+      }
+
+      #help-button-container {
+        pointer-events: auto;
+      }
+      #help-button {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+        font-weight: bold;
+        color: var(--theme-default);
+        border: 2px solid var(--theme-grid);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+      #help-button:hover {
+        border-color: var(--theme-selection);
+        box-shadow: 0 0 5px var(--theme-selection);
+      }
+
+      @keyframes pulse {
+        0% { box-shadow: 0 0 5px var(--theme-looper-recording); }
+        50% { box-shadow: 0 0 15px var(--theme-looper-recording); }
+        100% { box-shadow: 0 0 5px var(--theme-looper-recording); }
+      }
+
       #worm-game-button {
+          position: absolute;
+          right: 10px;
+          bottom: 10px;
+          z-index: 15;
           user-select: none;
           color: var(--theme-default);
           font-size: 24px;
           font-weight: bold;
           cursor: pointer;
           text-align: center;
-          border: 1px solid var(--theme-default);
           border-radius: 8px;
           width: 57px;
           height: 40px;
@@ -160,7 +217,7 @@
         min-width: 0;
       }
       .loop-track {
-        width: 60px;
+        width: 70px;
         height: 40px; /* Set fixed height */
         box-sizing: border-box; /* Include border in height */
         border: 2px solid var(--theme-grid);
@@ -168,7 +225,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
+        gap: 6px;
         font-size: 16px;
         color: var(--theme-default);
         transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
@@ -179,17 +236,13 @@
         border-color: var(--theme-selection);
       }
       .loop-track-icon {
-        position: absolute;
-        left: 8px;
-        top: 50%;
-        transform: translateY(-50%);
         width: 10px;
         height: 10px;
+        flex-shrink: 0;
       }
       .loop-track-icon.play {
         width: 0;
         height: 0;
-        padding: 0 5px;
         border-top: 6px solid transparent;
         border-bottom: 6px solid transparent;
         border-left: 10px solid var(--theme-default);
@@ -474,6 +527,35 @@
         text-align: right;
         padding-right: 10px;
       }
+
+      /* NEW: Styles for the SYNTH/SAMPLE toggle button */
+      .param-item.is-toggle-button .param-label {
+          display: none;
+      }
+      .param-item.is-toggle-button .param-value-wrapper {
+          justify-content: center;
+          flex-grow: 1;
+      }
+      .param-item.is-toggle-button .param-value {
+          display: flex;
+          gap: 10px;
+          min-width: unset;
+          text-align: center;
+      }
+      .param-item.is-toggle-button .param-value span {
+          padding: 0 10px;
+          color: var(--theme-grid);
+          border: 1px solid transparent;
+          border-radius: 6px;
+      }
+      .param-item.is-toggle-button .param-value span.active {
+          color: var(--theme-selection);
+          border-color: var(--theme-selection);
+          text-shadow: 0 0 5px var(--theme-selection);
+      }
+      .param-item.is-toggle-button:hover .param-value span:not(.active) {
+           color: var(--theme-default);
+      }
       
       /* --- REPL Styles --- */
       @keyframes repl-cursor-blink {
@@ -565,6 +647,48 @@
       #repl-input:focus {
           caret-color: transparent;
       }
+
+      /* Modal styles */
+      #help-modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background-color: rgba(0, 0, 0, 0.85);
+          color: var(--theme-default);
+          z-index: 100;
+          overflow-y: auto;
+          font-family: monospace;
+          box-sizing: border-box;
+      }
+      #help-modal-content-wrapper {
+          padding: 40px;
+          max-width: 900px;
+          margin: 0 auto;
+      }
+      #help-modal-content body { /* Override injected body styles */
+          background: transparent !important;
+          color: var(--theme-text) !important;
+      }
+      #help-modal-content h1 { color: var(--theme-selection) !important; text-shadow:0 0 10px var(--theme-selection) !important; border-bottom-color: var(--theme-grid) !important; }
+      #help-modal-content h2 { color: var(--theme-default) !important; text-shadow:0 0 5px var(--theme-default) !important; }
+      #help-modal-content h4 { color: #ff0; }
+      #help-modal-content .key, #help-modal-content .param { background: #000; padding: 2px 6px; color: var(--theme-selection); border: 1px solid var(--theme-grid); }
+      #help-modal-content .param { color: #ff0; }
+      #help-modal-content li:before { color: var(--theme-selection) !important; }
+      #help-modal-content li li:before { color: #ff0 !important; }
+      #help-modal-content .button { border-color: var(--theme-selection) !important; color: var(--theme-selection) !important; }
+      #help-modal-content .button:hover { background: var(--theme-menu-item-hover-bg) !important; }
+      #help-modal-content .button.secondary { border-color: var(--theme-default) !important; color: var(--theme-default) !important; }
+      #help-modal-content .button.secondary:hover { background: rgba(0, 255, 0, 0.1) !important; }
+      #help-modal-content .back-link { border-color: var(--theme-selection) !important; color: var(--theme-selection) !important; }
+      #help-modal-content .back-link:hover { background: var(--theme-menu-item-hover-bg) !important; }
+      #help-modal-content table { border-color: var(--theme-grid) !important; background-color: var(--theme-menu-bg) !important; }
+      #help-modal-content th, #help-modal-content td { color: var(--theme-default) !important; border-color: var(--theme-grid) !important; }
+      #help-modal-content th { background-color: rgba(0, 255, 255, 0.1) !important; color: var(--theme-selection) !important; }
+      #help-modal-content .accordion-toggle::after { color: var(--theme-selection) !important; }
+      #help-modal-content .workflow { background:rgba(0,0,0,0.2); border-color: var(--theme-grid); }
 
       /* Responsive UI for smaller screens */
       @media (max-width: 650px) {
