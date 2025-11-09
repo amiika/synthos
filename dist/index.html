@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Synthoscope</title>
+<script src="https://unpkg.com/peerjs@1.5.5/dist/peerjs.min.js"></script>
+  <script type="module" crossorigin src="./assets/index-CnsGJJEn.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DAN3Qm4W.css">
+</head>
+<body id="main-body" class="audio-uninitialized">
+    <div id="top-ui-wrapper">
+      <div id="party-button-container"></div>
+      <div id="looper-controls-container">
+        <div id="rec-button-container"></div>
+        <div id="stop-all-button-container"></div>
+        <div id="loop-scroll-left" class="looper-button loop-scroll-button" style="display: none;">&lt;</div>
+        <div id="looper-overview-container"></div>
+        <div id="loop-scroll-right" class="looper-button loop-scroll-button" style="display: none;">&gt;</div>
+      </div>
+      <div id="top-right-controls">
+        <div id="output-record-button-container">
+            <div id="output-record-button" title="Record Audio Output">&#128191;</div>
+        </div>
+        <div id="panic-button-container">
+            <div id="panic-button"><span class="full-text">PANIC</span><span class="short-text">!</span></div>
+        </div>
+        <div id="help-button-container">
+            <div id="help-button">?</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="canvas-container">
+      <canvas id="gl-canvas"></canvas>
+      <canvas id="visualizer-canvas"></canvas>
+      <canvas id="objects-canvas"></canvas>
+      <canvas id="ui-canvas"></canvas>
+    </div>
+
+    <div id="bottom-elements-wrapper">
+      <div id="menu-popup-container" style="display: none;"></div>
+      <div id="bottom-bar-container">
+        <div id="repl-toggle-button-container">
+            <div id="repl-toggle-button">&gt;</div>
+        </div>
+        <div id="mode-bar-container">
+          <div id="mode-scroll-left" class="mode-scroll-button" style="display: none;">&lt;</div>
+          <!-- JS inserts mode buttons here -->
+          <div id="mode-scroll-right" class="mode-scroll-button" style="display: none;">&gt;</div>
+        </div>
+        <div style="width: 35px; flex-shrink: 0;"></div> <!-- Spacer to balance REPL button -->
+      </div>
+      <div id="worm-game-button">~</div>
+    </div>
+    
+    <div id="repl-container">
+        <div id="repl-output"></div>
+        <div id="repl-input-wrapper">
+            <span id="repl-prompt">&gt;</span>
+            <input id="repl-input" type="text" spellcheck="false" autocomplete="off" />
+            <span id="repl-cursor"></span>
+        </div>
+    </div>
+
+    <div id="help-modal" style="display: none;">
+      <div id="help-modal-content-wrapper">
+        <div id="help-modal-content"></div>
+      </div>
+    </div>
+</body>
+</html>

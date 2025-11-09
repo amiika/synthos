@@ -1,2 +1,2 @@
 # synthos
-Synthoscope
+This is the preview dist for the Synthoscope
