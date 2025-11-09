@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Synthoscope Reference</title>
+</head>
+<body>
+    <a id="help-back-to-synth" class="back-link">BACK</a>
+    <div class="content-wrapper">
+        <h1>◊ SYNTHOSCOPE REFERENCE ◊</h1>
+        <p>This reference provides a deep dive into every menu and parameter available in the synthesizer. Use the <span class="key">TAB</span> key to switch between menus and the <span class="key">ARROW KEYS</span> to select and modify parameters.</p>
+        
+        <h2>SPACE</h2>
+        <p>Configures the spatial layout of pitches. The <span class="param">TYPE</span> parameter selects the active layout, each offering a unique way to visualize and interact with harmony and melody.</p>
+        <ul>
+            <li><span class="param">SPATIAL (LOGARITHMIC)</span>: A continuous space where X/Y axes map logarithmically to frequency. Ideal for microtonal exploration and smooth pitch glides.</li>
+            <li><span class="param">TEMPORAL</span>: A piano-roll view where the X-axis is time and the Y-axis is pitch. Best for traditional sequencing.</li>
+            <li><span class="param">CARTESIAN</span>: A structured lattice based on the current scale's interval pattern. Excellent for discovering chord shapes and harmonic structures. Includes parameters for <span class="param">AXIS</span> (ON/OFF) and <span class="param">SCALE</span> (SHOW/HIDE) to control visual elements.</li>
+            <li><span class="param">TUNING</span>: Maps pitch onto a logarithmic spiral, with angle as pitch class and radius as octave. Emphasizes harmonic overtones.</li>
+            <li><span class="param">HEXAGON</span>: An isomorphic hexagonal grid, great for visualizing consistent chord shapes across different keys.</li>
+            <li><span class="param">TONNETZ</span>: A dynamic grid that reveals triadic and structural relationships within any selected scale.</li>
+            <li><span class="param">EDGE</span>: A variation of the Tonnetz that emphasizes the relationships between chord edges.</li>
+            <li><span class="param">RADAR</span>: A circular timeline where angle represents time and radius represents pitch. Useful for visualizing cyclical patterns.</li>
+            <li><span class="param">RHYTHM</span>: A circular space for creating polyrhythms. Nodes snap to orbits, where the radius determines the rhythmic length.
+                <ul>
+                    <li><strong>Create Orbit:</strong> Drag from the center outwards.</li>
+                    <li><strong>Resize & Rotate Orbit:</strong> Drag an existing orbit line.</li>
+                    <li><strong>Delete Orbit:</strong> Drag an orbit to the center until it turns red.</li>
+                </ul>
+            </li>
+            <li><span class="param">VOID</span>: A blank spatial canvas where gestures and nodes are shown in their original, untransformed state. Useful as a blueprint view.</li>
+            <li><span class="param">OFF</span>: No grid is displayed, allowing for a clean view of the visualizer.</li>
+        </ul>
+
+        <h2>SCALE</h2>
+        <p>Configure the musical context. <span class="param">TYPE</span> selects the method of scale generation (Western, Binary, MOS, etc.). <span class="param">ROOT</span> sets the key. <span class="param">SNAP</span> quantizes notes to a grid (OFF, SEMITONE, or SCALE).</p>
+        
+        <h2>PATCH</h2>
+        <p>Load preset sounds. <span class="param">GROUP</span> selects a category (LEAD, PAD, BASS, etc.). <span class="param">PATCH</span> browses sounds in that group. <span class="param">RANDOM</span> generates a new sound.</p>
+
+        <h2>OSC (Oscillator)</h2>
+        <p>The oscillator is the fundamental source of the sound. This menu allows you to mix multiple waveforms. <span class="param">SAW</span>, <span class="param">PULSE</span>, <span class="param">SINE</span>, <span class="param">TRI</span>, <span class="param">SUB</span>, <span class="param">NOISE</span>, and <span class="param">METAL</span> control the volume of each. <span class="param">PWM</span> controls the pulse width, and <span class="param">SRC</span> determines its modulation source.</p>
+
+        <h2>PITCH</h2>
+        <p>Controls pitch slides and frequency range. <span class="param">SLIDE</span> sets a pitch sweep at the start of a note. <span class="param">TIME</span> is the duration of the sweep. <span class="param">MIN</span> and <span class="param">MAX</span> clamp the note's frequency to a specific range.</p>
+        
+        <h2>AMP (Amplifier)</h2>
+        <p>The AMP menu controls the final output stage and volume envelope. <span class="param">LEVEL</span> is the master volume. <span class="param">DRIVE</span> adds saturation. <span class="param">PAN</span> sets the stereo position. The ADSR parameters shape the volume over time: <span class="param">ATTACK</span>, <span class="param">DECAY</span>, <span class="param">SUSTAIN</span>, and <span class="param">RELEASE</span>.</p>
+
+        <h2>FILTER</h2>
+        <p>The filter shapes the timbre by removing frequencies. This menu contains all filter controls, including its dedicated ADSR envelope (<span class="param">ATTACK</span>, <span class="param">DECAY</span>, etc.) and <span class="param">DEPTH</span>, which create sweeps and dynamic changes.</p>
+
+        <h2>LFO (Low-Frequency Oscillator)</h2>
+        <p>Use an LFO to create rhythmic modulation. <span class="param">RATE</span> is the speed. <span class="param">SHAPE</span> sets the waveform. <span class="param">PITCH</span>, <span class="param">FILTER</span>, and <span class="param">AMP</span> control how much the LFO affects their respective targets.</p>
+
+        <h2>CHORUS (Effects)</h2>
+        <p>This menu contains the unified effects chain. <span class="param">CHORUS</span> controls the chorus modulation. <span class="param">ECHO</span> controls delay time and <span class="param">FEEDBACK</span>. <span class="param">ROOM</span> and <span class="param">DAMP</span> control the reverb. The <span class="param">WET</span> knob is a master mix for the entire chain.</p>
+        
+        <h2>CONTROL</h2>
+        <p>A special temporal view for recording automation of synth parameters. This allows for creating dynamic, evolving sounds over the course of a loop.</p>
+        <ul>
+            <li><span class="param">TARGET</span>: Selects what the automation will affect (e.g., <span class="key">ALL</span>, <span class="key">LOOP</span>, a specific node <span class="key">Q</span>).</li>
+            <li><span class="param">PARAM</span>: Selects which synthesizer parameter to automate, such as filter cutoff, volume, etc.</li>
+        </ul>
+
+        <h2>SETUP</h2>
+        <p>Controls the visuals. <span class="param">THEME</span> changes the color scheme. <span class="param">SIZE</span> adjusts the waveform visual size. <span class="param">VISUALS</span> selects the visualization type.</p>
+        
+        <h2>LOOP</h2>
+        <p>Manage workspaces and tempo. <span class="param">LOOP</span> selects a workspace (0-9). <span class="param">LENGTH</span> sets its duration in beats. <span class="param">TEMPO</span> is the global BPM. <span class="param">RECORD</span> sets timing to FREE, DRIVE, or WAIT.</p>
+    </div>
+</body>
+</html>

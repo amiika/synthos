@@ -667,7 +667,7 @@
           max-width: 900px;
           margin: 0 auto;
       }
-      #help-modal-content body { /* Override injected body styles */
+      #help-modal-content .content-wrapper { /* Target the actual content container */
           background: transparent !important;
           color: var(--theme-text) !important;
       }
@@ -689,6 +689,27 @@
       #help-modal-content th { background-color: rgba(0, 255, 255, 0.1) !important; color: var(--theme-selection) !important; }
       #help-modal-content .accordion-toggle::after { color: var(--theme-selection) !important; }
       #help-modal-content .workflow { background:rgba(0,0,0,0.2); border-color: var(--theme-grid); }
+      
+      /* --- Combined and scoped styles for help.html and reference.html --- */
+      #help-modal-content .content-wrapper { text-align: center; }
+      #help-modal-content h1 { font-size: 28px; letter-spacing: 3px; }
+      #help-modal-content h2 { font-size: 18px; letter-spacing: 1px; margin-top: 30px; }
+      #help-modal-content p { color: var(--theme-text); }
+      #help-modal-content ul { list-style: none; padding-left: 0; display: inline-block; text-align: left; }
+      #help-modal-content li { margin-bottom: 5px; }
+      #help-modal-content li:before { content: "» "; color: var(--theme-selection); }
+      #help-modal-content li li:before { content: "• "; color: #ff0; }
+      #help-modal-content .key { font-family: monospace; }
+      #help-modal-content p.description { font-style: italic; color: var(--theme-default); margin: 20px 0 30px 0; }
+      #help-modal-content p.description a { color: var(--theme-selection); text-decoration: underline; }
+      #help-modal-content p.description a:hover { text-shadow: 0 0 5px var(--theme-selection); }
+      #help-modal-content .button-container { margin-top: 50px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+      #help-modal-content .button { text-decoration: none; border: 1px solid var(--theme-selection); padding: 12px 20px; border-radius: 4px; color: var(--theme-selection); transition: background 0.2s; cursor: pointer; }
+      #help-modal-content .button:hover { background: rgba(0, 255, 255, 0.1); }
+      #help-modal-content .button.secondary { border-color: var(--theme-default); color: var(--theme-default); }
+      #help-modal-content .button.secondary:hover { background: rgba(0, 255, 0, 0.1); }
+      #help-modal-content .back-link { position: fixed; top: 10px; right: 10px; font-size: 16px; text-decoration: none; border: 1px solid var(--theme-selection); padding: 8px 15px; border-radius: 4px; z-index: 100; color: var(--theme-selection); cursor: pointer; text-align: center; }
+      #help-modal-content .back-link:hover { background: rgba(0, 255, 255, 0.1); }
 
       /* Responsive UI for smaller screens */
       @media (max-width: 650px) {
