@@ -1,2 +1,3 @@
-# synthos
-Synthoscope
+# Synthoscope
+
+Prototype synth
