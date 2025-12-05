@@ -782,7 +782,7 @@ body.dragging::before {
     display: flex;
     align-items: center;
     padding: 5px 10px;
-    background-color: transparent; /* Ensures input line matches container */
+    background-color: transparent !important; /* Force transparency */
     position: relative;
     flex-shrink: 0;
 }
