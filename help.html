@@ -3,30 +3,58 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Synthoscope Help</title> 
+    <title>Synthoscope Help</title>
 </head>
 <body>
+    <style>
+      .content-wrapper { padding: 40px; max-width: 800px; margin: 0 auto; line-height:1.8; text-align: center; }
+      h1{ color:#0ff; text-shadow:0 0 20px #0ff; font-size:28px; border-bottom:2px solid #0f0; padding-bottom:10px; letter-spacing:3px; }
+      p.description {
+        font-style: italic;
+        color: #0f0;
+        margin: 20px 0 30px 0;
+      }
+      p.description a {
+        color: #0ff;
+        text-decoration: underline;
+      }
+       p.description a:hover {
+        text-shadow: 0 0 5px #0ff;
+      }
+      h2{ color:#0f0; text-shadow:0 0 10px #0f0; margin-top:30px; font-size:18px; letter-spacing:1px; }
+      .key { background:#000; padding:2px 6px; color:#0ff; border:1px solid #0f0; }
+      ul { list-style:none; padding-left: 0; display: inline-block; text-align: left; }
+      li:before{ content:"» "; color:#0ff; }
+      .button-container { margin-top: 50px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+      .button { text-decoration: none; border: 1px solid #0ff; padding: 12px 20px; border-radius: 4px; color: #0ff; transition: background 0.2s; cursor: pointer; }
+      .button:hover { background: rgba(0,255,255,0.1); }
+      .button.secondary { border-color: #0f0; color: #0f0; }
+      .button.secondary:hover { background: rgba(0,255,0,0.1); }
+      .back-link { position: fixed; top: 10px; right: 10px; font-size: 16px; text-decoration: none; border: 1px solid #0ff; padding: 8px 15px; border-radius: 4px; z-index: 100; color: #0ff; cursor: pointer; text-align: center; }
+      .back-link:hover { background: rgba(0,255,255,0.1); }
+    </style>
     <a id="help-back-to-synth" class="back-link">BACK</a>
     <div class="content-wrapper">
         <h1>◊ SYNTHOSCOPE ◊</h1>
-        <p class="description">Experimental xenakian hybrid virtual analog substractive granular synthetizer, live looper, pitch space and scale explorer and a live coding environment inspired by the <a href="https://en.wikipedia.org/wiki/UPIC" target="_blank" rel="noopener noreferrer">UPIC</a> as a minimaximalist window to emergent improvised composition and chaotic collaboration</p>
+        <p class="description">Experimental xenakian hybrid virtual analog substractive granular synthetizer, live looper, pitch space and scale explorer and a live coding environment inspired by the <a href="https://en.wikipedia.org/wiki/UPIC" target="_blank" rel="noopener noreferrer">UPIC</a> as a minimaximalist window to emergent composition and chaotic collaboration</p>
         
         <h2>QUICK CONTROLS</h2>
         <ul>
-            <li><span class="key">A-Z</span> + Mouse: Create & Play Notes</li>
-            <li><span class="key">Click/Drag</span>: Select & Move Nodes</li>
+            <li><span class="key">A-Z</span>: Create & Play Notes</li>
+            <li><span class="key">Click/Drag</span>: Play or Select & Move Nodes</li>
+            <li><span class="key">Double Click</span>: Toggle Node Sustain</li>
             <li><span class="key">Shift</span> + <span class="key">Drag</span>: Marquee Select</li>
-            
-            <li><span class="key">TAB</span>: Cycle Edit Menus</li>
-            <li><span class="key">ESC</span>: Close active menus or Stop playback</li>
+            <li><span class="key">TAB</span>: Cycle Spaces</li>
+            <li><span class="key">ESC</span>: Close active menus or Stop</li>
             <li><span class="key">Arrow Keys</span>: Navigate Menus & Change Values</li>
             <li><span class="key">ENTER</span>: Apply operation or edit parameter</li>
             <li><span class="key">F1-F12</span>: Switch Loops</li>
             <li><span class="key">SPACE</span>: Toggle Recording</li>
             <li><span class="key">CTRL</span> + <span class="key">Drag</span>: Draw straight/curved gesture (In record mode)</li>
+            <li><span class="key">CAPSLOCK</span>: Piano mode ON/OFF</li>
             
             
-            <li><span class="key">§</span>, <span class="key">&lt;</span> or <span class="key">`</span>: Open REPL (Close with ESC)</li>
+            <li><span class="key">§</span>, <span class="key">&lt;</span>, ^ or <span class="key">`</span>: Open REPL (Close with ESC)</li>
         </ul>
 
         <div class="button-container">

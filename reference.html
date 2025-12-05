@@ -6,38 +6,57 @@
     <title>Synthoscope Reference</title>
 </head>
 <body>
+    <style>
+      .content-wrapper { padding: 40px; max-width: 800px; margin: 0 auto; line-height:1.8; }
+      h1{ color:#0ff; text-shadow:0 0 20px #0ff; font-size:28px; border-bottom:2px solid #0f0; padding-bottom:10px; text-align:center; letter-spacing:3px; }
+      h2{ color:#0f0; text-shadow:0 0 10px #0f0; margin-top:40px; font-size:18px; letter-spacing:1px; border-bottom: 1px solid rgba(0,255,0,0.3); padding-bottom: 5px; }
+      h3{ color:#ff0; font-size:16px; margin-top:25px; }
+      .key, .param { background:#000; padding:2px 6px; color:#0ff; border:1px solid #0f0; font-family: monospace; }
+      .param { color: #ff0; }
+      p { margin-top: 10px; }
+      .back-link { position: fixed; top: 10px; right: 10px; font-size: 16px; text-decoration: none; border: 1px solid #0ff; padding: 8px 15px; border-radius: 4px; z-index: 100; color: #0ff; cursor: pointer; text-align: center; }
+      .back-link:hover { background: rgba(0,255,255,0.1); }
+      ul, ol{ list-style:none; padding-left:20px; }
+      li { margin-bottom: 10px; }
+      li:before{ content:"» "; color:#0ff; }
+      li li:before{ content:"• "; color:#ff0; }
+      .workflow{ background:#001100; border:1px solid #0f0; padding:15px; margin:20px 0; border-radius:5px; box-shadow:0 0 20px rgba(0,255,0,0.1); }
+      table { border-collapse: collapse; width: 100%; margin: 25px 0; background: #001100; border: 1px solid #0f0; }
+      th, td { border: 1px solid rgba(0,255,0,0.3); padding: 8px 12px; text-align: left; }
+      th { background-color: rgba(0,255,255,0.1); color: #0ff; }
+      code { font-family: monospace; }
+    </style>
     <a id="help-back-to-synth" class="back-link">BACK</a>
     <div class="content-wrapper">
         <h1>◊ SYNTHOSCOPE REFERENCE ◊</h1>
         <p>This reference provides a deep dive into every menu and parameter available in the synthesizer. Use the <span class="key">TAB</span> key to switch between menus and the <span class="key">ARROW KEYS</span> to select and modify parameters.</p>
         
         <h2>SPACE</h2>
-        <p>Configures the spatial layout of pitches. The <span class="param">TYPE</span> parameter selects the active layout, each offering a unique way to visualize and interact with harmony and melody.</p>
+        <p>Configures the spatial layout of pitches. The <span class="param">TYPE</span> parameter selects the active layout. The <span class="param">MAP</span> parameter determines whether a node's visual <span class="key">POSITION</span> defines its audio frequency, or if its <span class="key">FREQUENCY</span> defines its visual position.</p>
         <ul>
-            <li><span class="param">SPATIAL (LOGARITHMIC)</span>: A continuous space where X/Y axes map logarithmically to frequency. Ideal for microtonal exploration and smooth pitch glides.</li>
+            <li><span class="param">LOGARITHMIC</span>: A continuous space where X/Y axes map logarithmically to frequency. Ideal for microtonal exploration and smooth pitch glides.</li>
             <li><span class="param">TEMPORAL</span>: A piano-roll view where the X-axis is time and the Y-axis is pitch. Best for traditional sequencing.</li>
-            <li><span class="param">CARTESIAN</span>: A structured lattice based on the current scale's interval pattern. Excellent for discovering chord shapes and harmonic structures. Includes parameters for <span class="param">AXIS</span> (ON/OFF) and <span class="param">SCALE</span> (SHOW/HIDE) to control visual elements.</li>
-            <li><span class="param">TUNING</span>: Maps pitch onto a logarithmic spiral, with angle as pitch class and radius as octave. Emphasizes harmonic overtones.</li>
+            <li><span class="param">CARTESIAN</span>: A structured lattice based on the current scale's interval pattern. Excellent for discovering chord shapes and harmonic structures.</li>
             <li><span class="param">HEXAGON</span>: An isomorphic hexagonal grid, great for visualizing consistent chord shapes across different keys.</li>
-            <li><span class="param">TONNETZ</span>: A dynamic grid that reveals triadic and structural relationships within any selected scale.</li>
-            <li><span class="param">EDGE</span>: A variation of the Tonnetz that emphasizes the relationships between chord edges.</li>
-            <li><span class="param">RADAR</span>: A circular timeline where angle represents time and radius represents pitch. Useful for visualizing cyclical patterns.</li>
-            <li><span class="param">RHYTHM</span>: A circular space for creating polyrhythms. Nodes snap to orbits, where the radius determines the rhythmic length.
+            <li><span class="param">TONNETZ</span>: A dynamic triangular grid that reveals triadic and structural relationships within any selected scale.</li>
+            <li><span class="param">RHYTHM</span>: A circular space for creating polyrhythms. Nodes snap to orbits, where radius determines rhythmic length.
                 <ul>
                     <li><strong>Create Orbit:</strong> Drag from the center outwards.</li>
                     <li><strong>Resize & Rotate Orbit:</strong> Drag an existing orbit line.</li>
-                    <li><strong>Delete Orbit:</strong> Drag an orbit to the center until it turns red.</li>
+                    <li><strong>Delete Orbit:</strong> Drag an orbit to the center until it turns red and release.</li>
                 </ul>
             </li>
             <li><span class="param">VOID</span>: A blank spatial canvas where gestures and nodes are shown in their original, untransformed state. Useful as a blueprint view.</li>
-            <li><span class="param">OFF</span>: No grid is displayed, allowing for a clean view of the visualizer.</li>
         </ul>
 
         <h2>SCALE</h2>
-        <p>Configure the musical context. <span class="param">TYPE</span> selects the method of scale generation (Western, Binary, MOS, etc.). <span class="param">ROOT</span> sets the key. <span class="param">SNAP</span> quantizes notes to a grid (OFF, SEMITONE, or SCALE).</p>
+        <p>Configure the musical context. <span class="param">TYPE</span> selects the method of scale generation (<span class="key">WESTERN</span>, <span class="key">BINARY</span>, <span class="key">MOS</span>). <span class="param">ROOT</span> sets the key. <span class="param">SNAP</span> quantizes notes to a grid (<span class="key">OFF</span>, <span class="key">SEMITONE</span>, or <span class="key">SCALE</span>). <span class="param">TUNING</span> adjusts the global A4 reference frequency.</p>
         
         <h2>PATCH</h2>
-        <p>Load preset sounds. <span class="param">GROUP</span> selects a category (LEAD, PAD, BASS, etc.). <span class="param">PATCH</span> browses sounds in that group. <span class="param">RANDOM</span> generates a new sound.</p>
+        <p>The patch browser for both synth presets and samples. Use the <span class="param">TYPE</span> toggle to switch between <span class="key">SYNTH</span> and <span class="key">SAMPLE</span> mode for the currently selected `EDIT` target. The <span class="param">EDIT</span> target determines which sound is being modified by the synth menus. Set to <span class="key">OFF</span> to browse presets without overwriting, or select a loop (<span class="key">F1</span>) or node (<span class="key">Q</span>) to edit it directly.</p>
+
+        <h2>CLIP</h2>
+        <p>When in <span class="key">SAMPLE</span> mode, this menu appears. It controls sample playback. <span class="param">TUNE</span> switches between standard resampling (<span class="key">RATE</span>) and <span class="key">GRANULAR</span> synthesis. You can also set the sample <span class="param">LOOP</span>, <span class="param">START</span>, and <span class="param">END</span> points. Granular parameters like <span class="param">GRAIN SIZE</span> and <span class="param">SPEED</span> allow for deep sound mangling.</p>
 
         <h2>OSC (Oscillator)</h2>
         <p>The oscillator is the fundamental source of the sound. This menu allows you to mix multiple waveforms. <span class="param">SAW</span>, <span class="param">PULSE</span>, <span class="param">SINE</span>, <span class="param">TRI</span>, <span class="param">SUB</span>, <span class="param">NOISE</span>, and <span class="param">METAL</span> control the volume of each. <span class="param">PWM</span> controls the pulse width, and <span class="param">SRC</span> determines its modulation source.</p>
@@ -45,30 +64,63 @@
         <h2>PITCH</h2>
         <p>Controls pitch slides and frequency range. <span class="param">SLIDE</span> sets a pitch sweep at the start of a note. <span class="param">TIME</span> is the duration of the sweep. <span class="param">MIN</span> and <span class="param">MAX</span> clamp the note's frequency to a specific range.</p>
         
-        <h2>AMP (Amplifier)</h2>
-        <p>The AMP menu controls the final output stage and volume envelope. <span class="param">LEVEL</span> is the master volume. <span class="param">DRIVE</span> adds saturation. <span class="param">PAN</span> sets the stereo position. The ADSR parameters shape the volume over time: <span class="param">ATTACK</span>, <span class="param">DECAY</span>, <span class="param">SUSTAIN</span>, and <span class="param">RELEASE</span>.</p>
-
         <h2>FILTER</h2>
         <p>The filter shapes the timbre by removing frequencies. This menu contains all filter controls, including its dedicated ADSR envelope (<span class="param">ATTACK</span>, <span class="param">DECAY</span>, etc.) and <span class="param">DEPTH</span>, which create sweeps and dynamic changes.</p>
-
+        
         <h2>LFO (Low-Frequency Oscillator)</h2>
         <p>Use an LFO to create rhythmic modulation. <span class="param">RATE</span> is the speed. <span class="param">SHAPE</span> sets the waveform. <span class="param">PITCH</span>, <span class="param">FILTER</span>, and <span class="param">AMP</span> control how much the LFO affects their respective targets.</p>
+        
+        <h2>AMP (Amplifier)</h2>
+        <p>The AMP menu controls the final output stage and volume envelope. <span class="param">LEVEL</span> is the master volume. <span class="param">DRIVE</span> adds saturation. <span class="param">PAN</span> sets the stereo position. The ADSR parameters shape the volume over time: <span class="param">ATTACK</span>, <span class="param">DECAY</span>, <span class="param">SUSTAIN</span>, and <span class="param">RELEASE</span>. <span class="param">SEND</span> controls the amount of signal sent to the FX chain.</p>
 
-        <h2>CHORUS (Effects)</h2>
-        <p>This menu contains the unified effects chain. <span class="param">CHORUS</span> controls the chorus modulation. <span class="param">ECHO</span> controls delay time and <span class="param">FEEDBACK</span>. <span class="param">ROOM</span> and <span class="param">DAMP</span> control the reverb. The <span class="param">WET</span> knob is a master mix for the entire chain.</p>
+        <h2>FX (Effects)</h2>
+        <p>This menu contains the unified effects chain for the current loop. It includes a <span class="param">CHORUS</span> section (<span class="param">RATE</span>, <span class="param">DEPTH</span>, <span class="param">MIX</span>), a delay section (<span class="param">ECHO</span>, <span class="param">FEEDBACK</span>), and a reverb section (<span class="param">ROOM</span>, <span class="param">DAMP</span>). The final <span class="param">AMOUNT</span> knob is the master wet/dry mix for the entire effects chain.</p>
         
         <h2>CONTROL</h2>
         <p>A special temporal view for recording automation of synth parameters. This allows for creating dynamic, evolving sounds over the course of a loop.</p>
         <ul>
             <li><span class="param">TARGET</span>: Selects what the automation will affect (e.g., <span class="key">ALL</span>, <span class="key">LOOP</span>, a specific node <span class="key">Q</span>).</li>
-            <li><span class="param">PARAM</span>: Selects which synthesizer parameter to automate, such as filter cutoff, volume, etc.</li>
+            <li><span class="param">X-AXIS</span> & <span class="param">Y-AXIS</span>: Selects which synthesizer parameters to automate.</li>
         </ul>
 
         <h2>SETUP</h2>
-        <p>Controls the visuals. <span class="param">THEME</span> changes the color scheme. <span class="param">SIZE</span> adjusts the waveform visual size. <span class="param">VISUALS</span> selects the visualization type.</p>
+        <p>Controls the global visuals and hardware settings.</p>
+        <ul>
+            <li><span class="param">THEME</span>: Changes the color scheme.</li>
+            <li><span class="param">VISUALS</span>: Selects the background visualization type.</li>
+            <li><span class="param">SIZE</span>: Adjusts the size/intensity of the background visualization.</li>
+            <li><span class="param">FADE</span>: Toggles fading trails for moving sounds.</li>
+            <li><span class="param">LAYOUT</span>, <span class="param">KEYS</span>, <span class="param">OCTAVE</span>: Configure computer keyboard layout and note mapping.</li>
+            <li><span class="param">LABELS</span>: Toggles the display of note and frequency labels on nodes.</li>
+            <li><span class="param">PORT</span>: Selects an active MIDI input device.</li>
+        </ul>
         
         <h2>LOOP</h2>
-        <p>Manage workspaces and tempo. <span class="param">LOOP</span> selects a workspace (0-9). <span class="param">LENGTH</span> sets its duration in beats. <span class="param">TEMPO</span> is the global BPM. <span class="param">RECORD</span> sets timing to FREE, DRIVE, or WAIT.</p>
+        <p>Manage workspaces and tempo. <span class="param">LOOP</span> selects a workspace (<span class="key">F1-F12</span>). <span class="param">LENGTH</span> sets its duration in beats. <span class="param">TEMPO</span> is the global BPM. <span class="param">RECORD</span> sets timing to <span class="key">FREE</span>, <span class="key">DRIVE</span>, or <span class="key">WAIT</span>.</p>
+
+        <h2>SHARE</h2>
+        <p>Manages saving, loading, and sharing the entire state of your session. All saves are stored locally in your browser.</p>
+        <ul>
+            <li><span class="param">LINK</span>: An action that generates a unique, compressed URL of your current session state and copies it to your clipboard. This link can be shared with others to load an exact copy of your session.</li>
+            <li><span class="param">NEW</span>: Creates a new save slot with a randomly generated name, duplicating the current state.</li>
+            <li><span class="param">REMOVE</span>: Deletes the currently loaded save state from your browser's storage. The special <span class="key">DEFAULT</span> state cannot be removed but will be reset to its pristine factory state.</li>
+            <li><span class="param">STATE</span>: Cycles through all your saved states. Loading a state will completely replace your current session.</li>
+        </ul>
+
+        <h2>PARTY</h2>
+        <p>The PARTY menu enables real-time, collaborative sessions. When you start a party, you become the host and a unique party link is copied to your clipboard. Anyone with the link can join your session.</p>
+        <ul>
+            <li><span class="param">PARTY ID:</span> Displays the unique ID of the current party session. This is read-only.</li>
+            <li><span class="param">COPY</span>: Copies the party invitation link to your clipboard again.</li>
+            <li>The main <span class="key">PARTY</span> button on the top bar becomes a <span class="key">SCRAM</span> button while in a session. Clicking it will disconnect you from the party. If the host leaves, the party ends for everyone.</li>
+        </ul>
+
+        <h2>Global Controls</h2>
+        <p>These buttons are located in the top-right corner and provide essential global functions.</p>
+        <h3>PANIC Button</h3>
+        <p>The big red <span class="key">PANIC</span> button is an emergency kill-switch. Pressing it will immediately stop all sounding notes, clear all events and nodes from all loops, and reset the synthesizer state. Use with caution!</p>
+        <h3>Record Audio Output (&#128191; icon)</h3>
+        <p>This button toggles the recording of the main audio output. When you click it, recording starts, and the icon will pulse red. Click it again to stop recording. Your browser will then prompt you to download the complete session as a high-quality <code>.wav</code> file.</p>
     </div>
 </body>
 </html>
