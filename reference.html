@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,17 +55,10 @@
         <p>Configure the musical context. <span class="param">TYPE</span> selects the method of scale generation (<span class="key">WESTERN</span>, <span class="key">BINARY</span>, <span class="key">MOS</span>). <span class="param">ROOT</span> sets the key. <span class="param">SNAP</span> quantizes notes to a grid (<span class="key">OFF</span>, <span class="key">SEMITONE</span>, or <span class="key">SCALE</span>). <span class="param">TUNING</span> adjusts the global A4 reference frequency.</p>
         
         <h2>PATCH</h2>
-        <p>The patch browser for synth presets, samples, and vocoder settings. Use the <span class="param">TYPE</span> toggle to switch between <span class="key">SYNTH</span>, <span class="key">SAMPLE</span>, and <span class="key">VOCODE</span> mode for the currently selected `EDIT` target. The <span class="param">EDIT</span> target determines which sound is being modified by the synth menus. Set to <span class="key">OFF</span> to browse presets without overwriting, or select a loop (<span class="key">F1</span>) or node (<span class="key">Q</span>) to edit it directly.</p>
+        <p>The patch browser for synth presets and samples. Use the <span class="param">TYPE</span> toggle to switch between <span class="key">SYNTH</span> and <span class="key">SAMPLE</span> mode for the currently selected `EDIT` target. The <span class="param">EDIT</span> target determines which sound is being modified by the synth menus. Set to <span class="key">OFF</span> to browse presets without overwriting, or select a loop (<span class="key">F1</span>) or node (<span class="key">Q</span>) to edit it directly.</p>
 
         <h2>CLIP</h2>
         <p>When in <span class="key">SAMPLE</span> mode, this menu appears. It controls sample playback. <span class="param">TUNE</span> switches between standard resampling (<span class="key">RATE</span>) and <span class="key">GRANULAR</span> synthesis. You can also set the sample <span class="param">LOOP</span>, <span class="param">START</span>, and <span class="param">END</span> points. Granular parameters like <span class="param">GRAIN SIZE</span> and <span class="param">SPEED</span> allow for deep sound mangling.</p>
-
-        <h2>VOCODER</h2>
-        <p>When in <span class="key">VOCODE</span> mode, this menu appears. It modulates a synthesized carrier signal with the spectral envelope of your microphone input.</p>
-        <div class="warning">
-            WARNING: High risk of audio feedback! Always use headphones (ideally without active noise cancellation) to prevent loud feedback loops when the microphone is active.
-        </div>
-        <p>Controls include <span class="param">BANDS</span> (spectral resolution), <span class="param">SENSE</span> (input sensitivity), and <span class="param">SYNTH</span>/<span class="param">INPUT</span>/<span class="param">NOISE</span> levels to blend the carrier signal components.</p>
 
         <h2>OSC (Oscillator)</h2>
         <p>The oscillator is the fundamental source of the sound. This menu allows you to mix multiple waveforms. <span class="param">SAW</span>, <span class="param">PULSE</span>, <span class="param">SINE</span>, <span class="param">TRI</span>, <span class="param">SUB</span>, <span class="param">NOISE</span>, and <span class="param">METAL</span> control the volume of each. <span class="param">PWM</span> controls the pulse width, and <span class="param">SRC</span> determines its modulation source.</p>

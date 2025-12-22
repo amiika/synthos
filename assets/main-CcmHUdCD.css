@@ -613,9 +613,14 @@ body.dragging::before {
 }
 
 .param-label {
-  flex-grow: 1;
+  width: 120px; /* Fixed width */
+  flex: 0 0 120px;
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 .param-value-wrapper {
   display: flex;
   align-items: center;
@@ -633,13 +638,54 @@ body.dragging::before {
 .param-item.editing .param-button {
   color: var(--theme-selection);
 }
+
 .param-item .param-value {
-  min-width: 100px;
-  text-align: center;
+  width: 120px;
+  max-width: 120px;
+  min-width: 120px; /* Force rigid width */
+  flex: 0 0 120px;
+  height: 30px;
   padding: 0 5px;
   color: var(--theme-default);
   text-shadow: 0 0 3px var(--theme-default);
+  
+  /* Flexbox for centering content properly */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Overflow handling */
+  overflow: hidden;
+  position: relative;
+  background: transparent;
 }
+
+.param-value.has-overflow {
+  justify-content: flex-start; /* Align left to allow scrolling from start */
+}
+
+/* Inner container for potentially scrolling text */
+.param-val-inner {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.param-val-inner.rolling {
+    animation: roll-text-continuous 10s linear infinite;
+    will-change: transform;
+    /* Spacing is handled by the duplicated text */
+}
+
+@keyframes roll-text-continuous {
+    /* 
+       To scroll RIGHT-TO-LEFT (standard marquee), 
+       we start at 0 (first text visible)
+       and move to -distance (where second text takes first text's place).
+    */
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-1 * var(--scroll-dist))); }
+}
+
 .param-item.active .param-value, .param-item.editing .param-value {
   color: var(--theme-selection);
   text-shadow: 0 0 8px var(--theme-selection);
@@ -675,12 +721,18 @@ body.dragging::before {
   display: none;
 }
 .param-item.is-action-button.has-no-value .param-label {
-  flex-grow: 0;
+  width: auto;
+  flex: 1 1 auto;
+  text-align: center;
 }
 .param-item.is-action-button:not(.has-no-value) .param-value {
   min-width: unset;
+  flex: 0 1 auto; /* Reset fixed width for action buttons like RESET */
+  width: auto;
+  max-width: none;
   text-align: right;
   padding-right: 10px;
+  justify-content: flex-end;
 }
 
 /* Toggle Button Styles (e.g., Synth/Sample) */
@@ -694,7 +746,10 @@ body.dragging::before {
 .param-item.is-toggle-button .param-value {
     display: flex;
     gap: 10px;
+    width: auto; /* Reset fixed width for toggles */
+    max-width: none;
     min-width: unset;
+    flex: 0 1 auto;
     text-align: center;
 }
 .param-item.is-toggle-button .param-value span {
