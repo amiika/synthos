@@ -542,6 +542,12 @@ body.dragging::before {
   cursor: grab;
   opacity: 0.6;
   transition: opacity 0.2s;
+  display: flex;       
+  align-items: center; 
+  padding-left: 25px; /* Increased from 10px to match param item offset (15px container padding + 10px item padding) */
+  font-size: 16px;     
+  font-weight: bold;   
+  color: var(--theme-menu-bg);
 }
 .menu-drag-area:hover { opacity: 0.8; }
 .menu-drag-area:active { cursor: grabbing; opacity: 1; }
@@ -786,7 +792,10 @@ body.dragging::before {
     color: #0f0;
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
-    border-bottom: 2px solid var(--theme-selection);
+    
+    /* Removed border when inactive to prevent pixel bleed at top edge */
+    border-bottom: none;
+
     display: flex;
     flex-direction: column;
     z-index: 100; /* Layer above objects canvas */
@@ -794,7 +803,8 @@ body.dragging::before {
     cursor: text;
     text-shadow: 0 0 4px currentColor;
     
-    transform: translateY(-100%);
+    /* Translate further up to ensure even sub-pixel rendering doesn't show the container */
+    transform: translateY(-105%);
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), height 0.3s ease;
     
     pointer-events: none;
@@ -807,6 +817,8 @@ body.dragging::before {
 #repl-container.active {
     transform: translateY(0);
     pointer-events: auto;
+    /* Add border only when active */
+    border-bottom: 2px solid var(--theme-selection);
 }
 
 #repl-container.fullscreen {
