@@ -773,6 +773,21 @@ body.dragging::before {
      color: var(--theme-default);
 }
 
+/* No Label Styles (for STATE) */
+.param-item.no-label {
+  justify-content: center;
+}
+.param-item.no-label .param-value-wrapper {
+  flex: 1;
+  justify-content: space-between;
+}
+.param-item.no-label .param-value {
+  flex: 1;
+  max-width: none;
+  min-width: 0;
+  width: auto;
+}
+
 /* ==========================================================================
    9. REPL TERMINAL
    Command-line interface for advanced control.
