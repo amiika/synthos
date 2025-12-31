@@ -288,7 +288,20 @@ body.dragging::before {
 }
 
 /* Looper Icons */
-#rec-button .icon { width: 22px; height: 22px; border-radius: 50%; background-color: var(--theme-default); transition: all 0.2s ease-in-out; }
+#rec-button .icon { 
+    width: 22px; 
+    height: 22px; 
+    border-radius: 50%; 
+    background-color: var(--theme-default); 
+    transition: all 0.2s ease-in-out; 
+    /* Font styles for when text is present */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: var(--theme-bg); /* Use background color for high contrast text */
+}
 #rec-button.recording .icon { border-radius: 50%; background-color: #f00; }
 #stop-all-button .icon {
   width: 0;
