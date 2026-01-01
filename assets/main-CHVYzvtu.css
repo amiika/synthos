@@ -1,4 +1,5 @@
 
+
 /* ==========================================================================
    1. GLOBAL VARIABLES & THEME CONFIGURATION
    ========================================================================== */
@@ -433,7 +434,8 @@ body.dragging::before {
   font-family: monospace;
   font-size: 20px;
   color: var(--theme-default);
-  padding: 0 8px;
+  padding: 0 10px;
+  text-align: center;
   height: 45px;
   line-height: 45px;
   border: 1px solid transparent;
@@ -456,6 +458,15 @@ body.dragging::before {
 }
 .mode-button.focused {
   box-shadow: inset 0 -2px 0 0 var(--theme-selection);
+}
+
+/* Specific styling for SYNTH/SAMPLE to prevent layout shift during toggle */
+.mode-button[data-mode="SYNTH"],
+.mode-button[data-mode="SAMPLE"] {
+  min-width: 6ch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mode-scroll-button {
