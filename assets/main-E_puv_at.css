@@ -142,6 +142,12 @@ body.dragging::before {
   pointer-events: auto;
 }
 
+/* Generic Focus Ring Replacement */
+button:focus, a:focus, div[tabindex]:focus {
+    outline: 2px solid var(--theme-selection);
+    outline-offset: 2px;
+}
+
 /* Panic Button */
 #panic-button {
   width: 62px;
@@ -964,39 +970,162 @@ body.dragging::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.85);
-    color: var(--theme-default);
+    background-color: var(--theme-bg); /* Theme-aware background */
+    color: var(--theme-text);
     z-index: 100;
     overflow-y: auto;
     font-family: monospace;
     box-sizing: border-box;
 }
+
+/* Ensure the help modal gets a theme-aware outline when focused (for keyboard scrolling) */
+#help-modal:focus {
+    outline: 2px solid var(--theme-selection);
+    outline-offset: -2px; /* Pull outline inside to be visible full-screen */
+}
+
 #help-modal-content-wrapper {
     padding: 40px;
     max-width: 900px;
     margin: 0 auto;
 }
 
-/* Override styles for injected help content */
-#help-modal-content body { background: transparent !important; color: var(--theme-text) !important; }
-#help-modal-content h1 { color: var(--theme-selection) !important; text-shadow:0 0 10px var(--theme-selection) !important; border-bottom-color: var(--theme-grid) !important; }
-#help-modal-content h2 { color: var(--theme-default) !important; text-shadow:0 0 5px var(--theme-default) !important; }
-#help-modal-content h4 { color: #ff0; }
-#help-modal-content .key, #help-modal-content .param { background: #000; padding: 2px 6px; color: var(--theme-selection); border: 1px solid var(--theme-grid); }
-#help-modal-content .param { color: #ff0; }
-#help-modal-content li:before { color: var(--theme-selection) !important; }
-#help-modal-content li li:before { color: #ff0 !important; }
-#help-modal-content .button { border-color: var(--theme-selection) !important; color: var(--theme-selection) !important; }
-#help-modal-content .button:hover { background: var(--theme-menu-item-hover-bg) !important; }
-#help-modal-content .button.secondary { border-color: var(--theme-default) !important; color: var(--theme-default) !important; }
-#help-modal-content .button.secondary:hover { background: rgba(0, 255, 0, 0.1) !important; }
-#help-modal-content .back-link { border-color: var(--theme-selection) !important; color: var(--theme-selection) !important; }
-#help-modal-content .back-link:hover { background: var(--theme-menu-item-hover-bg) !important; }
-#help-modal-content table { border-color: var(--theme-grid) !important; background-color: var(--theme-menu-bg) !important; }
-#help-modal-content th, #help-modal-content td { color: var(--theme-default) !important; border-color: var(--theme-grid) !important; }
-#help-modal-content th { background-color: rgba(0, 255, 255, 0.1) !important; color: var(--theme-selection) !important; }
-#help-modal-content .accordion-toggle::after { color: var(--theme-selection) !important; }
-#help-modal-content .workflow { background:rgba(0,0,0,0.2); border-color: var(--theme-grid); }
+/* Override styles for injected help content (help.html, reference.html, tutorial.html) */
+/* We use !important to override the inline <style> blocks within those HTML files */
+
+#help-modal-content body { 
+    background: transparent !important; 
+    color: var(--theme-text) !important; 
+}
+
+#help-modal-content h1 { 
+    color: var(--theme-selection) !important; 
+    text-shadow: none !important; 
+    border-bottom-color: var(--theme-selection) !important; 
+}
+
+#help-modal-content h2, 
+#help-modal-content h3,
+#help-modal-content h4 { 
+    color: var(--theme-default) !important; 
+    text-shadow: none !important; 
+    border-bottom-color: var(--theme-grid) !important;
+}
+
+#help-modal-content p, 
+#help-modal-content li, 
+#help-modal-content ul, 
+#help-modal-content ol, 
+#help-modal-content td,
+#help-modal-content .description { 
+    color: var(--theme-text) !important; 
+}
+
+#help-modal-content a {
+    color: var(--theme-selection) !important;
+    text-shadow: none !important;
+}
+
+#help-modal-content .key { 
+    background: var(--theme-menu-bg) !important; 
+    padding: 2px 6px; 
+    color: var(--theme-text) !important; 
+    border: 1px solid var(--theme-grid) !important; 
+    text-shadow: none !important;
+}
+
+#help-modal-content .param { 
+    color: var(--theme-selection) !important; 
+    background: transparent !important;
+    border: none !important;
+    font-weight: bold;
+    text-shadow: none !important;
+}
+
+#help-modal-content li:before { 
+    color: var(--theme-selection) !important; 
+}
+#help-modal-content li li:before { 
+    color: var(--theme-default) !important; 
+}
+
+#help-modal-content .button { 
+    border-color: var(--theme-selection) !important; 
+    color: var(--theme-selection) !important; 
+    background-color: var(--theme-menu-bg) !important;
+    text-shadow: none !important;
+}
+#help-modal-content .button:hover { 
+    background-color: var(--theme-menu-item-hover-bg) !important; 
+    color: var(--theme-text) !important;
+}
+
+#help-modal-content .button.secondary { 
+    border-color: var(--theme-default) !important; 
+    color: var(--theme-default) !important; 
+}
+#help-modal-content .button.secondary:hover { 
+    background-color: var(--theme-menu-item-hover-bg) !important; 
+}
+
+#help-modal-content .back-link { 
+    border-color: var(--theme-selection) !important; 
+    color: var(--theme-selection) !important; 
+    background-color: var(--theme-bg) !important; 
+}
+#help-modal-content .back-link:hover { 
+    background-color: var(--theme-menu-item-hover-bg) !important; 
+}
+
+#help-modal-content table { 
+    border-color: var(--theme-grid) !important; 
+    background-color: transparent !important; 
+}
+#help-modal-content th { 
+    background-color: var(--theme-menu-item-hover-bg) !important; 
+    color: var(--theme-selection) !important; 
+    border-color: var(--theme-grid) !important;
+}
+#help-modal-content td { 
+    color: var(--theme-text) !important; 
+    border-color: var(--theme-grid) !important; 
+}
+
+#help-modal-content .accordion-toggle {
+    color: var(--theme-default) !important;
+    border-bottom-color: var(--theme-grid) !important;
+    text-shadow: none !important;
+}
+#help-modal-content .accordion-toggle::after { 
+    color: var(--theme-selection) !important; 
+}
+
+#help-modal-content .workflow { 
+    background: var(--theme-menu-bg) !important; 
+    border-color: var(--theme-grid) !important; 
+    color: var(--theme-text) !important;
+}
+#help-modal-content code {
+    background: var(--theme-menu-item-hover-bg) !important;
+    color: var(--theme-text) !important;
+    font-family: monospace;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+#help-modal-content .warning {
+    color: var(--theme-looper-panic) !important;
+    border-color: var(--theme-looper-panic) !important;
+    background: rgba(255, 0, 0, 0.1) !important;
+}
+
+/* Apply theme aware focus to injected buttons/links inside the help modal */
+#help-modal-content .button:focus,
+#help-modal-content .back-link:focus,
+#help-modal-content a:focus {
+    outline: 2px solid var(--theme-selection);
+    outline-offset: 2px;
+}
 
 /* ==========================================================================
    11. RESPONSIVE UTILITIES

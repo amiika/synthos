@@ -36,7 +36,7 @@
         <h2>SPACE</h2>
         <p>Configures the spatial layout of pitches. The <span class="param">TYPE</span> parameter selects the active layout. The <span class="param">MAP</span> parameter determines whether a node's visual <span class="key">POSITION</span> defines its audio frequency, or if its <span class="key">FREQUENCY</span> defines its visual position.</p>
         <ul>
-            <li><span class="param">LOGARITHMIC</span>: A continuous space where X/Y axes map logarithmically to frequency. Ideal for microtonal exploration and smooth pitch glides.</li>
+            <li><span class="param">SPATIAL</span>: A continuous space where X/Y axes map logarithmically to the frequency. Ideal for microtonal exploration and recording freeform pitch glides.</li>
             <li><span class="param">TEMPORAL</span>: A piano-roll view where the X-axis is time and the Y-axis is pitch. Best for traditional sequencing.</li>
             <li><span class="param">CARTESIAN</span>: A structured lattice based on the current scale's interval pattern. Excellent for discovering chord shapes and harmonic structures.</li>
             <li><span class="param">HEXAGON</span>: An isomorphic hexagonal grid, great for visualizing consistent chord shapes across different keys.</li>
@@ -49,6 +49,13 @@
                 </ul>
             </li>
             <li><span class="param">VOID</span>: A blank spatial canvas where gestures and nodes are shown in their original, untransformed state. Useful as a blueprint view.</li>
+            <li><span class="param">SOUND</span>: A space for designing sound and visualizing synthetizer signals or samples.</li>
+            <li><span class="param">CONTROL</span>: A special temporal view for recording automation of synth parameters. This allows for creating dynamic, evolving sounds over the course of a loop.
+                <ul>
+                    <li><strong>TARGET</strong>: Select parameter target (e.g., <strong>ALL</strong>, <strong>LOOP</strong>, or <strong>Q</strong>).</li>
+                    <li><strong>X-AXIS</strong> & <strong>Y-AXIS</strong>: Selects which synthesizer parameters to automate.</li>
+                </ul>
+            </li>
         </ul>
 
         <h2>SCALE</h2>
@@ -67,7 +74,7 @@
         <p>Controls pitch slides and frequency range. <span class="param">SLIDE</span> sets a pitch sweep at the start of a note. <span class="param">TIME</span> is the duration of the sweep. <span class="param">MIN</span> and <span class="param">MAX</span> clamp the note's frequency to a specific range.</p>
         
         <h2>FILTER</h2>
-        <p>The filter shapes the timbre by removing frequencies. This menu contains all filter controls, including its dedicated ADSR envelope (<span class="param">ATTACK</span>, <span class="param">DECAY</span>, etc.) and <span class="param">DEPTH</span>, which create sweeps and dynamic changes.</p>
+        <p>The filter shapes the timbre by removing frequencies. Filter TYPE defines the filter character: Highs, Bass, Buzz, Formant etc. Menu contains all filter controls, including its dedicated ADSR envelope (<span class="param">ATTACK</span>, <span class="param">DECAY</span>, etc.) and <span class="param">DEPTH</span>, which create sweeps and dynamic changes and dedicated highpass and lowpass controls for the slopes of the filters.</p>
         
         <h2>LFO (Low-Frequency Oscillator)</h2>
         <p>Use an LFO to create rhythmic modulation. <span class="param">RATE</span> is the speed. <span class="param">SHAPE</span> sets the waveform. <span class="param">PITCH</span>, <span class="param">FILTER</span>, and <span class="param">AMP</span> control how much the LFO affects their respective targets.</p>
@@ -77,13 +84,6 @@
 
         <h2>FX (Effects)</h2>
         <p>This menu contains the unified effects chain for the current loop. It includes a <span class="param">CHORUS</span> section (<span class="param">RATE</span>, <span class="param">DEPTH</span>, <span class="param">MIX</span>), a delay section (<span class="param">ECHO</span>, <span class="param">FEEDBACK</span>), and a reverb section (<span class="param">ROOM</span>, <span class="param">DAMP</span>). The final <span class="param">AMOUNT</span> knob is the master wet/dry mix for the entire effects chain.</p>
-        
-        <h2>CONTROL</h2>
-        <p>A special temporal view for recording automation of synth parameters. This allows for creating dynamic, evolving sounds over the course of a loop.</p>
-        <ul>
-            <li><span class="param">TARGET</span>: Selects what the automation will affect (e.g., <span class="key">ALL</span>, <span class="key">LOOP</span>, a specific node <span class="key">Q</span>).</li>
-            <li><span class="param">X-AXIS</span> & <span class="param">Y-AXIS</span>: Selects which synthesizer parameters to automate.</li>
-        </ul>
 
         <h2>SETUP</h2>
         <p>Controls the global visuals and hardware settings.</p>
@@ -121,7 +121,7 @@
         <p>These buttons are located in the top-right corner and provide essential global functions.</p>
         <h3>PANIC Button</h3>
         <p>The big red <span class="key">PANIC</span> button is an emergency kill-switch. Pressing it will immediately stop all sounding notes, clear all events and nodes from all loops, and reset the synthesizer state. Use with caution!</p>
-        <h3>Record Audio Output (&#128191; icon)</h3>
+        <h3>Record Audio Output (&#9022;)</h3>
         <p>This button toggles the recording of the main audio output. When you click it, recording starts, and the icon will pulse red. Click it again to stop recording. Your browser will then prompt you to download the complete session as a high-quality <code>.wav</code> file.</p>
     </div>
 </body>
